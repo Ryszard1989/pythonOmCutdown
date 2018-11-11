@@ -1,9 +1,9 @@
 class Security:
-    def __init__(self, security_name, security_type, price):
-        self.security_name = security_name
-        self.security_type = security_type
+    def __init__(self, securityName, securityType, price):
+        self.securityName = securityName
+        self.securityType = securityType
         self.price = price
 
     def printSecurity(self):
-        print("Security:" + self.security_name + ", Type: " + self.security_type + ", Price: " + str(self.price))
+        print("Security:" + self.securityName + ", Type: " + self.securityType + ", Price: " + str(self.price))
 
