@@ -7,3 +7,6 @@ class Security:
     def printSecurity(self):
         print("Security:" + self.securityName + ", Type: " + self.securityType + ", Price: " + str(self.price))
 
+    def stringSecurity(self):
+        return ("Security:" + self.securityName + ", Type: " + self.securityType + ", Price: " + str(self.price))
+

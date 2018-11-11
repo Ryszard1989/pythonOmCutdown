@@ -6,8 +6,9 @@ class Position:
         self.amount = amount
 
 class Portfolio:
-    def __init__(self):
+    def __init__(self, portfolioManager):
         self.positions = []
+        self.portfolioManager = portfolioManager
             
     def calculateNewPositionAveragePrice(self, positionSecurity, positionAmount, tradeSecurity, tradeAmount):
         totalAmount = positionAmount + tradeAmount
@@ -35,6 +36,7 @@ class Portfolio:
 
 
     def printPortfolio(self):
+        print(self.portfolioManager + "'s Portfolio:")
         for p in self.positions:
             print("Security: " + p.security.securityName + ", Amount: " + str(p.amount) + ", AveragePrice: " + str(p.security.price))
 

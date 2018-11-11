@@ -4,30 +4,28 @@
 
 from security import Security
 from stockExchange import StockExchange
-from portfolio import *
+from portfolio import Position
+from portfolio import Portfolio
+from interactiveSession import InteractiveSession
 
 ftse = StockExchange("FTSE 100")
 securities = [Security("IBM","Equity",105), Security("VOD","Equity",108), Security("UBI","Equity",120)]
 ftse.addSecurities(securities)
-
-myPortfolio = Portfolio()
-
 ftse.calculateAveragePrice()
-ftse.printStockExchange()
+#ftse.printStockExchange()
 
-print("Day 0 Trading Action")
+#myPortfolio = Portfolio("Dave")
+#print("Day 0 Trading Action")
+#myPortfolio.makeTrade(ftse.securities[0], 100)
+#myPortfolio.makeTrade(ftse.securities[2], 500)
+#print("Portfolio end of day")
+#myPortfolio.printPortfolio()
+#ftse.simulateDay()
+#print("Day 1 Trading Action")
+#myPortfolio.makeTrade(ftse.securities[0], 100)
+#myPortfolio.makeTrade(ftse.securities[1], 100)
+#myPortfolio.printPortfolio()
 
-myPortfolio.makeTrade(ftse.securities[0], 100)
-myPortfolio.makeTrade(ftse.securities[2], 500)
-print("Portfolio end of day")
-myPortfolio.printPortfolio()
-
-
-ftse.simulateDay()
-
-print("Day 1 Trading Action")
-myPortfolio.makeTrade(ftse.securities[0], 100)
-myPortfolio.makeTrade(ftse.securities[1], 100)
-myPortfolio.printPortfolio()
-
+uiSession = InteractiveSession(ftse)
+uiSession.session()
 

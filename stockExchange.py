@@ -6,8 +6,7 @@ class StockExchange:
         self.name = name
         self.securities = []
         self.averagePrice = 0
-        self.day = 0
-        print("Day " + str(self.day))
+        self.day = 1
 
     def addSecurity(self, security):
         self.securities.append(security)
@@ -31,12 +30,14 @@ class StockExchange:
                 s.price = 0
         self.calculateAveragePrice()
         self.day += 1
-        print("Day " + str(self.day))
         self.printStockExchange()
 
     def printStockExchange(self):
+        print("Day " + str(self.day))
         print("Stock Exchange: " + self.name)
         print("Average Price of Stocks: " + str(self.averagePrice))
+        count = 1
         for s in self.securities:
-            s.printSecurity()
+            print(str(count) + ": " + s.stringSecurity())
+            count += 1
         print("")
