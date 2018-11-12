@@ -36,7 +36,7 @@ class InteractiveSession:
                     else:
                         securityAmount = int(input("How much do you want to buy/sell? (use minus sign to sell)\n"))
                         self.portfolio.makeTrade(self.stockExchange.securities[securitySelection-1], securityAmount)
-                    userinput = input("Are you done trading for today?\n")
+                    userinput = input("Are you done trading for today? (Choose y/n)\n")
                     if userinput in ['Y','y','N','n']:
                         if userinput in ['Y','y']:
                             print("Ok that's it for today. Let's see how that goes tomorrow\n")                            

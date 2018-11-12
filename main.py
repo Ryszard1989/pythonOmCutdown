@@ -11,7 +11,6 @@ from interactiveSession import InteractiveSession
 ftse = StockExchange("FTSE 100")
 securities = [Security("IBM","Equity",105), Security("VOD","Equity",108), Security("UBI","Equity",120)]
 ftse.addSecurities(securities)
-ftse.calculateAveragePrice()
 #ftse.printStockExchange()
 
 #myPortfolio = Portfolio("Dave")
