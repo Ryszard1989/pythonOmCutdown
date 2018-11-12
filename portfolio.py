@@ -9,6 +9,7 @@ class Portfolio:
     def __init__(self, portfolioManager):
         self.positions = []
         self.portfolioManager = portfolioManager
+        self.cash = 10000 #TODO pass in value
             
     def calculateNewPositionAveragePrice(self, positionSecurity, positionAmount, tradeSecurity, tradeAmount):
         totalAmount = positionAmount + tradeAmount
@@ -26,17 +27,20 @@ class Portfolio:
                 if p.security.securityName == security.securityName:
                     foundFlag = True
                     newAveragePrice = self.calculateNewPositionAveragePrice(p.security, p.amount, security, amount)
-                    #print("New average px of " + p.security.securityName + ":" + str(newAveragePrice))
                     p.amount += amount
                     p.security.price = newAveragePrice
+                    self.cash -= (security.price * amount)
+
         if foundFlag == False:
             newSecurity = Security(security.securityName, security.securityType, security.price)
             self.positions.append(Position(newSecurity, amount))
+            self.cash -= (security.price * amount)
 
 
 
     def printPortfolio(self):
         print(self.portfolioManager + "'s Portfolio:")
+        print("Available cash: " + str(self.cash))
         for p in self.positions:
             print("Security: " + p.security.securityName + ", Amount: " + str(p.amount) + ", AveragePrice: " + str(p.security.price))
 
