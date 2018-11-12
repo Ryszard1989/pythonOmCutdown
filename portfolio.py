@@ -22,6 +22,9 @@ class Portfolio:
         
 
     def makeTrade(self, security, amount):
+        if amount is 0:
+            print("Entered trading amount of 0")
+            return
         print("Trading " + str(amount) + " of " + security.securityName + " at price of " + str(security.price))
         foundFlag = False
         if self.positions:
